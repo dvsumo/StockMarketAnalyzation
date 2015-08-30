@@ -46,7 +46,7 @@ public class StockMain {
 
 				result = gson.fromJson(response.toString(), StockQueryResult.class);
 
-				System.out.println("\nSending 'GET' request to URL: " + url);
+//				System.out.println("\nSending 'GET' request to URL: " + url);
 				// System.out.println("\nGot " + result);
 
 			} catch (Exception e) {
@@ -57,7 +57,8 @@ public class StockMain {
 			if (result != null) // do logic here
 			{
 				vix = new VixAlgorithm(result.getQuery().getResults().getQuote(), funds, currentHoldings);
-				vix.testBuyLT13SellAbove();
+//				vix.testBuyLT13SellAbove();
+				vix.testAbsWorstCase();
 				funds = vix.getResults();
 				currentHoldings = vix.getCurrentHoldings();
 			}
